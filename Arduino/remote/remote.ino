@@ -6,6 +6,7 @@ bool online = false;
 #include "config.h"
 #include "rcData.h"
 #include "accelerator.h"
+#include "battery.h"
 #include "debugger.h"
 #include "onlineButton.h"
 #include "radio.h"
@@ -16,6 +17,7 @@ void setup() {
   setupDebug();
 #endif
 
+  setupBatteryLevel();
   setupAccelerator();
   setupLatchingButton();
   setupRadio();
@@ -28,6 +30,8 @@ void loop() {
   if (online)  {
     online = sendRadioData();
   }
+
+  checkBatteryLevel();
 
 #ifdef DEBUG
   loopDebug();

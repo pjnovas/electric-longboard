@@ -1,5 +1,6 @@
 #define DEBUG
 // #define DEBUG_ACC // Activate to see potenciometer values
+// #define DEBUG_BAT // Activate to see battery level
 
 #ifdef DEBUG
   #define SERIAL_BAULRATE 115200
@@ -15,6 +16,8 @@
 #define ONLINE_PRESS_TIME 500
 
 #define ACC_Pin A0
+#define Battery_Pin A1
+#define LowBatteryLed_Pin 3
 
 #define SEND_DATA_DELAY_MS 100
 #define SEND_DATA_MAX_TRIES 30
