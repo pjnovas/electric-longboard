@@ -4,8 +4,10 @@
 bool online = false;
 
 #include "config.h"
+#include "rcData.h"
+#include "accelerator.h"
 #include "debugger.h"
-#include "online_button.h"
+#include "onlineButton.h"
 #include "radio.h"
 
 void setup() {
@@ -14,11 +16,13 @@ void setup() {
   setupDebug();
 #endif
 
+  setupAccelerator();
   setupLatchingButton();
   setupRadio();
 }
 
 void loop() {
+  readAccelerator();
   online = getLatchingState(online);
   
   if (online)  {

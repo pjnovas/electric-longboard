@@ -19,14 +19,14 @@ bool sendRadioData() {
   if (millis() - radio_delay_lastTime > SEND_DATA_DELAY_MS) {
     
     radio.stopListening();
-    unsigned long start_time = micros();
+    // unsigned long start_time = micros();
   
 #ifdef DEBUG
     Serial.print(F("Now sending - "));
-    Serial.print(start_time); 
+    Serial.print(data.acc); 
 #endif
   
-    bool ack = radio.write(&start_time, sizeof(unsigned long));
+    bool ack = radio.write(&data, sizeof(RcData));
       
     radio.startListening();
     radio_delay_lastTime = millis();

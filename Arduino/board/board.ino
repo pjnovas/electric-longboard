@@ -2,6 +2,7 @@
 #include "RF24.h"
 
 #include "config.h"
+#include "rcData.h"
 
 RF24 radio(CEPin, CSPin);
 
@@ -27,11 +28,11 @@ void loop() {
   
   if( radio.available()){
     
-    radio.read( &got_time, sizeof(unsigned long) );
+    radio.read(&data, sizeof(RcData));
 
 #ifdef DEBUG
     Serial.print(F("Got Data "));
-    Serial.println(got_time);
+    Serial.println(data.acc);
 #endif
   }
  
