@@ -15,7 +15,7 @@ void checkBatteryLevel() {
 
 #ifdef DEBUG_BAT
   Serial.print("Battery Level at: ");
-  Serial.print(percentage);
+  Serial.println(percentage);
 #endif
 
   if (percentage <= BatteryPercentageLOW) {
